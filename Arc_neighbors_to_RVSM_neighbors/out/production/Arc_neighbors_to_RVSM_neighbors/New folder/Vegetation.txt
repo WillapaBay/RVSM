@@ -1,0 +1,903 @@
+VPM                    1.0      1.0    182.5            !     vegetation time step (days), roughness time step (days), and output time step (days)  1h = 0.041666d, dt output 121.75
+***     year               month     day       hour      Santa Ana R. Reach 9                 remove VIV -1 and 0 lines
+VTM                    1949        10         2         0              !     run dates  10/1/1999Sep/30/200changed YMN from 0,1 to F,T
+***     number of veg types   number of soil types              !     Veg verification    File Rev. 5/14/2010 changed ABBREV to Classification Number
+VNM                       7         8
+***     relationship between initial vegetation mapping and computational polygons
+***  veg_community   1CW    Coverage    Density    Height    2MFGW    Coverage  Density    Height    3NW    Coverage    Density    Height    4INV    Coverage  Density    Height    5HB    Coverage    Density    Height    6AGNoG    Coverage  Density    Height    7NoG    Coverage  Density  Height
+VIV        -1         0         0         0         0         0         0         0          0         0        0         0          0         0       0         0          0         0       0          0          0         0         0         0          0         1        1        0        0         !       prevented                     -1prevented
+VIV         0         0         0         0         0         0         0         0          0         0        0         0          0         0       0         0          0         0       0          0          0         0         0         0          0         1        1        0        0         !       stray polygon-nothing          0nothing
+VIV         1         0         0         0         0         0         0         0          0         0        0         0          0         0       0         0          0         0       0          0          0         0         0         0          0         0        0        0        0         !       Barren&Wasteland               1Barren&Wasteland
+VIV         2         0         0         0         0         0         0         0          0         2      0.5         2          3         0       0         0          0         1     0.5          0          1         0         0         0          0         0        0        0        0         !       Sparse Young Riparian          2Sparse Young Riparian
+VIV         3         0         0         0         0         2       0.5         0          3         2      0.5         0          3         0       0         0          0         0       0          0          0         0         0         0          0         0        0        0        0         !       Young Riparian                 3Young Riparian
+VIV         4        14       0.1      0.04        21         8       0.4         0         12         2      0.5         0          3         0       0         0          0         0       0          0          0         0         0         0          0         0        0        0        0         !       Multilayered Riparian          4Multilayered Riparian
+VIV         5        14       0.3         0        21         0         0         0          0         0        0         0          0         0       0         0          0         1     0.7          0          1         0         0         0          0         0        0        0        0         !       Old Riparian                   5Old Riparian
+VIV         6         0         0         0         0         0         0         0          0         0        0         0          0         2       1         0          6         0       0          0          0         0         0         0          0         0        0        0        0         !       Arundo                         6Arundo
+VIV         7         0         0         0         0         0         0         0          0         0        0         0          0         0       0         0          0         1       1          0          1         0         0         0          0         0        0        0        0         !       Grass                          7Grass
+VIV         8         0         0         0         0         0         0         0          0         0        0         0          0         2       1        20        4.5         0       0          0          0         1         1         0          0         0        0        0        0         !       Crops&Landscaped               8Crops&Landscaped
+VIV         9         0         0         0         0         0         0         0          0         0        0         0          0         0       0         0          0         0       0          0          0         1         1         0          0         0        0        0        0         !       Open Water                     9Open Water
+***
+*********************************************************************
+***     Begin Veg Type 1     Freemont Cottonwood
+*********************************************************************
+***     name
+VVN     frmnt cttnwd
+***     Junna added Veg Category: 0 = none, 1 = Tree, 2 = shrub, 3 = grass
+VVC                       1
+***     Junna begins to add more parameter
+***     ratio of canopy height and plant height, ratio of canopy width and stem diameter
+VCR                     0.5      5
+***     allometric relationships between plant height and stem diameter: H=aD^b, unit of H is m and unit of D is cm. 
+VDH                    2.37      0.53
+***     number of main stems. So far it is assumed no change during growth
+VSN                       1
+***     begin and end date of vegetation with leaves on
+VLD                       0       366
+*********************************************************************
+***     germination
+MMT                       1          ! Simulation Method (0 = none, 1 = air, 2 = water)
+***     Begin              End       April 30- June 19
+MDY                     120       170
+***     DD20               baseTemp?Duration
+***     MDD                      56.7        16        27
+***     if MMT = 2: need to enter MPW too
+***     days required for germination, max dry days allowed before germination (assumed seed longevity to 50%germ, Stillwater Sciences 2006 for SJR),
+***     height above gw table considered moist enough for germination, depth below gw germination still occurs
+MPR                       1        54       1.5       0.1
+***     critical depth, travel distance (feet), seed survival (days)
+***     MPW
+***     max lateral spread rate (ft/day) for each month
+***     ***                age       Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+***     MLT                         0         0         0         0         0         0         0         0         0         0         0         0         0
+***     max height of establish (above?) of low water
+MEL                     200
+*********************************************************************
+***     growth             (dormant SJR Dec 13- Feb 6)
+GMT                       1                    ! Simulation Method (0 if none performed, 1 = stalk, canopy, root)
+***     max stalk growth rate (ft/day) for each month
+***     age                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+GST                       0         0         0     0.012     0.012     0.012     0.012     0.012     0.012     0.012     0.012     0.012         0
+GST                       3         0         0     0.006     0.006     0.006     0.006     0.006     0.006     0.006     0.006     0.006         0
+***     max height
+GSM                      10
+***     max shaded canopy spread rate (ft/day) for each month                      2.16
+***     age                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+GCP                       0         0         0     0.002     0.002     0.002     0.002     0.002     0.002     0.002     0.002     0.002         0
+GCP                       2         0         0     0.005     0.005     0.005     0.005     0.005     0.005     0.005     0.005     0.005         0
+GCP                      15         0         0     0.008     0.008     0.008     0.008     0.008     0.008     0.008     0.008     0.008         0
+GCP                      45         0         0     0.002     0.002     0.002     0.002     0.002     0.002     0.002     0.002     0.002         0
+***     max width
+GCM                      15
+***     max root growth rate (ft/day) for each month     (0.2 cm/day)               0.16  0.00525  ! Junna change it to 0.16 cm/day
+***     age                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+GRT                       0         0         0    0.00656    0.00656    0.00656    0.00656    0.00656    0.00656    0.00656    0.00656    0.00656         0
+***     max depth of root below water table before it stops growing, max depth below ground
+GRS                    0.01        20
+*********************************************************************
+***   Junna changed roughness parameters
+***     roughness
+RMT                       0                         ! Simulation Method (0 if none performed, 1 if using equations, )
+***     ***     min manning n, max manning n due to vegetation
+***     RNM                    0.01       0.6
+***     ***     roughness equations for tree
+***     RTE                       1                 ! 0 none, 1 Huthoff, 2007-regard tree as rigid column; 2 Cheng, 2011-regard tree as rigid column; 3 Jarvela 2004; 4 Baptist 2007
+***     ***     roughness equations for shrub
+***     RSE                       0                 ! 0 none, 1 Jarvela 2004, 2 Baptist 2007, 3 Rahmeyer 2000, 4 Fischenich 2000
+***     roughness equations for grass
+***     RGE                       0                 ! 0 none, 1 n-UR method, 2 Kouwen 1980, 3 Wu 1999
+***     ***     list parameters of selected equations
+***     ***     parameters for RTE = 1 Huthoff, 2007 or RTE = 2 Cheng, 2011, regard tree as rigid column: Cd
+***     RPM     1.0
+***     supplimental spatial and temperal data for RTE = 1: plant density (4 options: 1 iso, 2 spatial, 3 temperal, 4 spatial&temporal variations)
+***     RDT     1       1.2
+***!!!!!!!!
+***!    ***     parameters for RTE = 1, regard tree as rigid column (Huthoff, 2007); 2 Cheng, 2011;: Cd
+***!    RPM     1        1.0
+***!    ***     supplimental spatial and temperal data for RTE = 1: plant density (4 options: 1 iso, 2 spatial, 3 temperal, 4 spatial&temporal variations)
+***!    RDT     1       1.2
+***!!!!!!!!
+***!    ***     parameters for RTE = 3, Jarvela 2004: leafless: Cd, RB, RD, dmin; leafy: Ux, Cdx, X
+***!    RPM     1.1      4.24        1.86       0.01       0.33      0.43      -0.57
+***!    ***     supplimental spatial and temperal data for RTE = 2: plant density and LAI (4 options: 1 iso, 2 spatial, 3 temperal, 4 spatial&temporal variations)
+***!    RDT     2
+***!    RDT     3
+***!!!!!!!!
+***!    ***     parameters for RTE = 4, Baptist 2007: Cd, Cb
+***!    RPM     1.0            80.0
+***!    ***     supplimental spatial and temperal data for RTE = 3: plant density (4 options: 1 iso, 2 spatial, 3 temperal, 4 spatial&temporal variations)
+***!    RDT     1               4.0
+***     death types
+*********************************************************************
+***     Competition
+CMT                       1                    ! Simulation Method (0 if none performed)
+CID                       7                    ! Death id
+***     age that species Y has to be to kill species 1CW at age  (-1 any age of Y plant will kill--doesn't work LF)
+***          species Y           1CW       2BW       3NW      4INV       5HB    6AgNoG      7NoG
+***     age of species 1CW
+CMP                     0.1        99        99         1         2         3      0.01      0.01
+CMP                       2        99        99        99         3        99      0.01      0.01
+CMP                       3        99        99        99        99        99      0.01      0.01
+***     shading
+***     age of species at which it is shade tolerant
+CSH                       5
+*********************************************************************
+***     scouring
+SMT                       1                    ! Simulation Method (0 if none performed)
+SID                       1                              ! Death id
+***     age                crit vel [not sjr values or Blairs Sac]
+SVC                       0         2
+SVC                       1         3
+SVC                       2         4
+SVC                       3         4
+SVC                       4         8
+*********************************************************************
+***     burying
+BMT                       0                              ! Simulation Method (0 if none performed)
+***     BID                        ?                     ! Death id
+***     BDP                         2                    ! Burying depth
+*********************************************************************
+***     drowning
+DMT                       1                              ! Simulation Method (0 if none performed)
+DID                       3                              ! Death id
+***     age                time (d)  depth
+DTM                       0        15       0.5
+DTM                       1        30       1.0
+DTM                       2        45       2.0
+DTM                       3        60       2.0
+DTM                       4       120       2.0
+DTM                       5       150       2.0
+*********************************************************************                                      70 to 100 ave to max mahoony & rood 1998
+***     desication                                                                                                 70cm              27.6in
+YMT                       2                              ! Simulation Method (0 if none performed)
+YID                       4                              ! Death id
+***     age                time (d)  height              height above capillary fringe required for descication (ft?) Gravel, Sand, Sand
+YWT                       -3.28     -1.51     -1.51   -1.51       -1.51	   -1.51    -1.51    -1.51    -1.51
+YWT                       -0.0328  -0.021    -0.018   -0.018      -0.018   -0.018   -0.018   -0.018   -0.018
+YWT                       0.0      -0.013    -0.012   -0.012      -0.012   -0.012   -0.012   -0.012   -0.012
+YWT                       0.0328    0.009     0.005    0.005       0.005    0.005    0.005    0.005    0.005
+YWT                       0.0656    0.032     0.03     0.03        0.03	    0.03     0.03     0.03     0.03
+YWT                       0.0984    0.115     0.051    0.051       0.051    0.051    0.051    0.051    0.051
+YWT                       3.28       5.9      1.99     1.99        1.99	    1.99     1.99     1.99     1.99
+***     Months drying is allowed     (0 can not kill plants with desic, 1 can kill plants by desic LF)     Changed from 0 and 1 to False and True
+***     Jan                Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+YMN     F                  F         T         T         T         T         T         T         T         T         T         F
+*********************************************************************
+***     ice
+IMT                       0                    ! 1 = on, 0 = off
+*********************************************************************
+***     age
+AMT                       0                    ! Simulation Method (0 if none performed)
+***     AID                         6                    ! Death id
+***     ATM                        75                    ! Age of death
+*********************************************************************
+***     Begin Veg Type 2     Mixed riparian forest
+*********************************************************************
+***     name
+VVN     Mix rip frst
+***     Junna added Veg Category: 0 = none, 1 = Tree, 2 = shrub, 3 = grass
+VVC                       1
+***     Junna begins to add more parameter
+***     ratio of canopy height and plant height, ratio of canopy width and stem diameter
+VCR                     0.6      5
+***     allometric relationships between plant height and stem diameter: H=aD^b, unit of H is m and unit of D is cm
+VDH                    2.35      0.53
+***     number of main stems. So far it is assumed no change during growth
+VSN                       1
+***     begin and end date of vegetation with leaves on
+VLD                      60       273
+*********************************************************************
+***     germination
+MMT                       1          ! Simulation Method (0 = none, 1 = air, 2 = water)
+***     Begin              End       May 19 to June 11
+MDY                     144       162
+***     DD20               baseTemp?Duration
+***     MDD                     169.1        15        45
+***     if MMT = 2: need to enter MPW too
+***     days required for germination, max dry days allowed before germination (assumed seed longevity to 50%germ, Stillwater Sciences 2006 for SJR),
+***     height above gw table considered moist enough for germination, depth below gw germination still occurs
+MPR                       1       31        1.0      0.10
+***     critical depth, travel distance (feet), seed survival (days)
+***     MPW
+***     max lateral spread rate (ft/day) for each month
+***     ***                age       Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+***     MLT                         0         0         0         0         0         0         0         0         0         0         0         0         0
+***     max height of establish (above?) of low water
+MEL                     200
+*********************************************************************
+***     growth    (dormant SJR Dec 13- Feb 6)
+GMT                       1                    ! Simulation Method (0 if none performed, 1 = stalk, canopy, root)
+***     max stalk growth rate (ft/day) for each month
+***     age                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+GST                       0         0         0      0.01      0.01      0.01      0.01      0.01      0.01      0.01      0.01   0.00328         0
+GST                       3         0         0     0.005     0.005     0.005     0.005     0.005     0.005     0.005     0.005   0.00656         0
+***     max height
+GSM                       8
+***     max shaded canopy spread rate (ft/day) for each month                      0.27
+***     age                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+GCP                       0         0         0     0.002     0.002     0.002     0.002     0.002     0.002     0.002     0.002     0.002         0
+GCP                       2         0         0     0.005     0.005     0.005     0.005     0.005     0.005     0.005     0.005     0.005         0
+GCP                      15         0         0     0.008     0.008     0.008     0.008     0.008     0.008     0.008     0.008     0.008         0
+GCP                      45         0         0     0.002     0.002     0.002     0.002     0.002     0.002     0.002     0.002     0.002         0
+***     max width
+GCM                      15
+***     max root growth rate (ft/day) for each month     0.5 cm/day                     2  0.065617    ! Junna changed it to 0.033
+***     age                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+GRT                       0         0         0     0.0165     0.0165     0.0165     0.0165     0.0165     0.0165     0.0165     0.0165     0.0165         0
+***     max depth of root below water table before it stops growing, max depth below ground
+GRS                     0.2        20
+*********************************************************************
+***   Junna changed roughness parameters
+***     roughness
+RMT                       0                         ! Simulation Method (0 if none performed, 1 if using equations)
+***     ***     min manning n, max manning n due to vegetation
+***     RNM                    0.01       0.6
+***     ***     roughness equations for tree
+***     RTE                       3                 ! 0 none, 1 Huthoff, 2007-regard tree as rigid column; 2 Cheng, 2011-regard tree as rigid column; 3 Jarvela 2004; 4 Baptist 2007
+***     ***     roughness equations for shrub
+***     RSE                       0                 ! 0 none, 1 Jarvela 2004, 2 Baptist 2007, 3 Rahmeyer 2000, 4 Fischenich 2000
+***     ***     roughness equations for grass
+***     RGE                       0                 ! 0 none, 1 n-UR method, 2 Kouwen 1980, 3 Wu 1999
+***     ***     parameters for RTE = 2, Jarvela 2004: leafless: Cd, RB, RD, dmin; leafy: Ux, Cdx, X
+***     RPM     1.0             4.24           1.86       0.01       0.33      0.43       -0.57
+***     ***     supplimental spatial and temperal data for RTE = 2: stem density and LAI (4 options: 1 iso, 2 spatial, 3 temperal, 4 spatial&temporal variations)
+***     RDT     2
+***     RDT     3
+***     death types
+*********************************************************************
+***     Competition
+CMT                       1                    ! Simulation Method (0 if none performed)
+CID                       7                    ! Death id
+***     age that species Y has to be to kill species 1BW at age  (-1 any age of Y plant will kill)
+***          species Y           1CW       2BW       3NW      4INV       5HB    6AgNoG      7NoG
+***     age of species 1BW
+CMP                     0.1        99        99         1         2         3      0.01      0.01
+CMP                       2        99        99        99         3        99      0.01      0.01
+CMP                       3        99        99        99        99        99      0.01      0.01
+***     shading
+***     age of species at which it is shade tolerant     (was 8)
+CSH                       5
+*********************************************************************
+***     scouring
+SMT                       1                    ! Simulation Method (0 if none performed)
+SID                       1                                        ! Death id
+***     age                crit vel [not sjr values or Blairs Sac]
+SVC                       0         2
+SVC                       1         3
+SVC                       2         4
+SVC                       3         5
+SVC                       4         8
+*********************************************************************
+***     burying
+BMT                       0                              ! Simulation Method (0 if none performed)
+***     BID                        ?                     ! Death id
+***     BDP                         2                    ! Burying depth
+*********************************************************************
+***     drowning
+DMT                       1                              ! Simulation Method (0 if none performed)
+DID                       3                              ! Death id
+***     age                time (d)  depth
+DTM                       0        12       0.5
+DTM                       1        25       1.0
+DTM                       2        25       2.0
+DTM                       3        50       2.0
+DTM                       4        90       2.0
+DTM                       5       120       2.0
+*********************************************************************
+***     desication
+YMT                       1                              ! Simulation Method (0 if none performed)
+YID                       4                              ! Death id
+***     age                time (d)  height              height above capillary fringe required for descication
+YTM                       0         2       0.1          !
+YTM                       1         5       0.1          !
+YTM                       2        14       0.1          !
+YTM                       3        28       0.1          !
+YTM                       6        60       0.1
+***     Months drying is allowed               (0 can not kill plants with desic, 1 can kill plants by desic LF)
+***     Jan                Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+YMN     F                  F         T         T         T         T         T         T         T         T         T         F
+*********************************************************************
+***     ice
+IMT                       0                    ! 1 = on, 0 = off
+*********************************************************************
+***     age
+AMT                       0                    ! Simulation Method (0 if none performed)
+***     AID                         6                    ! Death id
+***     ATM                        50                    ! Age of death
+*********************************************************************
+***     Begin Veg Type 3     Shrub
+*********************************************************************
+***     name
+VVN     Shrub
+***     Junna added Veg Category: 0 = none, 1 = Tree, 2 = shrub, 3 = grass
+VVC                       2
+***     Junna begins to add more parameter
+***     ratio of canopy height and plant height, ratio of canopy width and stem diameter
+VCR                     0.8      5
+***     allometric relationships between plant height and stem diameter: H=aD^b, unit of H is m and unit of D is cm
+VDH                    2.35      0.53
+***     number of main stems. So far it is assumed no change during growth
+VSN                      12
+***     begin and end date of vegetation with leaves on
+VLD                      60       273
+*********************************************************************
+***     germination
+MMT                       1          ! Simulation Method (0 = none, 1 = air, 2 = water)
+***     Begin              End       May 30 to July 8 (Stillwater 2006 notes it ranges widely- this was an average value for SJR)
+MDY                     129       181
+***     if MMT = 2: need to enter MPW too
+***     days required for germination, max dry days allowed before germination (assumed seed longevity to 50%germ, Stillwater Sciences 2006 for SJR),
+***     height above gw table considered moist enough for germination, depth below gw germination still occurs
+MPR                     1.5       44      1.0      0.10
+***     critical depth, travel distance (feet), seed survival (days)
+***     MPW
+***     max lateral spread rate (ft/day) for each month
+***     age                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+MLT                       0      0.01      0.01      0.01      0.01      0.01      0.01      0.01      0.01      0.01      0.01      0.01      0.01
+***     max height of establish (above?) of low water
+MEL                       8
+*********************************************************************
+***     growth
+GMT                       1                    ! Simulation Method (0 if none performed, 1 = stalk, canopy, root)
+***     max stalk growth rate (ft/day) for each month
+***     age                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+GST                       0         0         0     0.008     0.008     0.008     0.008     0.008     0.008     0.008     0.008     0.008         0
+***     max height
+GSM                       6
+***     max shaded canopy spread rate (ft/day) for each month                (was 0.008)
+***     age                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+GCP                       0         0         0     0.004     0.004     0.004     0.004     0.004     0.004     0.004     0.004     0.004         0
+***     max width
+GCM                       2
+***     max root growth rate (ft/day) for each month     1.5 cm/day                 1.5  0.049213
+***     age                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+GRT                       0         0         0      0.05      0.05      0.05      0.05      0.05      0.05      0.05      0.05      0.05         0
+***     max depth of root below water table before it stops growing, max depth below ground
+GRS                     0.2         9      
+*********************************************************************
+***   Junna changed roughness parameters
+***     roughness
+RMT                       0                         ! Simulation Method (0 if none performed, 1 if using equations)
+***     ***     min manning n, max manning n due to vegetation
+***     RNM                    0.01       0.6
+***     ***     roughness equations for tree
+***     RTE                       0                 ! 0 none, 1 Huthoff, 2007-regard tree as rigid column; 2 Cheng, 2011-regard tree as rigid column; 3 Jarvela 2004; 4 Baptist 2007
+***     ***     roughness equations for shrub
+***     RSE                       3                 ! 0 none, 1 Jarvela 2004, 2 Baptist 2007, 3 Rahmeyer 2000, 4 Fischenich 2000
+***     ***     roughness equations for grass
+***     RGE                       0                 ! 0 none, 1 n-UR method, 2 Kouwen 1980, 3 Wu 1999
+***     ***     list parameters of selected equations
+***     ***     parameters for RSE = 3, Rahmeyer 2000: Es_Option (1 age-Es; 2 age-F45; 3 compute Es based on H/Ds; 4 Es_H_Ds), Es_H_Ds
+***     RPM                       1
+***     ***     plant relationship for RSE = 3, Rahmeyer 2000: age-Es
+***     RRL                       0          2132821
+***     RRL                       1          3132821
+***     RRL                       10         4132821
+***     ***     parameters for RSE = 3, Rahmeyer 2000: Es_Option (1 age-Es; 2 age-F45; 3 compute Es based on H/Ds; 4 Es_H_Ds), Es_H_Ds
+***     RPM                       2
+***     ***     plant relationship for RSE = 3, Rahmeyer 2000: age-F45
+***     RRL                       0          0.816
+***     RRL                       1          1.816
+***     RRL                       6          2.816
+***     ***     parameters for RSE = 3, Rahmeyer 2000
+***     RPM                       3
+***     ***     parameters for RSE = 3, Rahmeyer 2000
+***     RPM                       4               200000.0
+***     ***     supplimental spatial and temperal data for RTE = 3, Rahmeyer 2000: stem density (4 options: 1 iso, 2 spatial, 3 temperal, 4 spatial&temporal variations)
+***     RDT                       1               4.0
+***!!!!!!!!
+***     ***     supplimental spatial and temperal data for RTE = 4, Fischenich 2000: CdAd (4 options: 1 iso, 2 spatial, 3 temperal, 4 spatial&temporal variations)
+***     RDT                       1              0.08
+***     death types
+*********************************************************************
+***     Competition
+CMT                       1                    ! Simulation Method (0 if none performed)
+CID                       7                    ! Death id
+***     ***                age that species Y has to be to kill species 1NW at age  (-1 any age of Y plant will kill)
+***          species Y           1CW       2BW       3NW       4INV      5HB     6AgNoG      7NoG
+***     age of species 1NW
+CMP                     0.1        24        24        99         2         3      0.01      0.01
+CMP                       2        40        40        99         3        99      0.01      0.01
+CMP                       3        99        99        99        99        99      0.01      0.01
+***     shading
+***     age of species at which it is shade tolerant
+CSH                      99
+*********************************************************************
+***     scouring
+SMT                       1                    ! Simulation Method (0 if none performed)
+SID                       1                                        ! Death id
+***     age                crit vel
+SVC                       0         2
+SVC                       1         3
+SVC                       2         4
+SVC                       3         5
+SVC                       4         8
+*********************************************************************
+***     burying
+BMT                       0                              ! Simulation Method (0 if none performed)
+***     BID                        ?                     ! Death id
+***     BDP                         2                    ! Burying depth
+*********************************************************************
+***     drowning
+DMT                       1                              ! Simulation Method (0 if none performed)
+DID                       3                              ! Death id
+***     age                time (d)  depth
+DTM                       0        30       0.5
+DTM                       1        40         1
+DTM                       2        60         2
+DTM                       3        70         2
+DTM                       4       150         2
+DTM                       5       180         2
+*********************************************************************
+***     desication
+YMT                       1                              ! Simulation Method (0 if none performed)
+YID                       4                              ! Death id
+***     age                time (d)  cap ht              height above capillary fringe required for descication
+YTM                       0         7      1.0
+YTM                       1        10      1.0
+YTM                       2        14      1.0
+YTM                       3        28      1.0
+YTM                       5        150     1.0
+***     Months drying is allowed                         Changed from 0 and 1 to False and True
+***     Jan                Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+YMN     F                  T         T         T         T         T         T         T         T         T         T         F
+*********************************************************************
+***     ice
+IMT                       0                    ! 1 = on, 0 = off
+*********************************************************************
+***     age
+AMT                       0                    ! Simulation Method (0 if none performed)
+***     AID                         6                    ! Death id
+***     ATM                        99                    ! Age of death
+*********************************************************************
+***     Begin Veg Type 4     Invasive (arundo (Giant Reed) or tamarisk)
+*********************************************************************
+***     name
+VVN     Invasive
+***     Junna added Veg Category: 0 = none, 1 = tree, 2 = shrub, 3 = grass
+VVC                       2
+***     Junna begins to add more parameter
+***     ratio of canopy height and plant height, ratio of canopy width and stem diameter
+VCR                     0.9       5
+***     allometric relationships between plant height and stem diameter: H=aD^b, unit of H is m and unit of D is cm
+VDH                    3.21       0.6
+***     number of main stems. So far it is assumed no change during growth
+VSN                       1
+***     begin and end date of vegetation with leaves on
+VLD                      60       304
+*********************************************************************
+***     germination
+MMT                       2          ! Simulation Method (0 = none, 1 = air, 2 = water)
+***     Begin              End       Not during dormant season?    March thru Nov    ! Junna changed it to March thru July
+MDY                      60       210
+***     if MMT = 2: need to enter MPW too
+***     days required for germination, max dry days allowed before germination (assumed seed longevity to 50%germ, Stillwater Sciences 2006 for SJR),
+***     height above gw table considered moist enough for germination, depth below gw germination still occurs
+MPR                       1         6      1.00      0.10
+***     critical depth, travel distance (feet), seed survival (days)         was 25,000 ft travel time
+MPW                     1.5      1000         6
+***     max lateral spread rate (ft/day) for each month
+***     age                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+MLT                       0         0         0      0.16      0.16      0.16      0.16      0.16      0.16      0.16      0.16      0.16         0
+***     max height of establish (above?) of low water     
+MEL                       5
+*********************************************************************
+***     growth
+GMT                       1                    ! Simulation Method (0 if none performed, 1 = stalk, canopy, root)
+***     max stalk growth rate (ft/day) for each month
+***     age                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+GST                       0         0         0      0.09      0.09      0.09      0.09      0.09      0.09      0.09      0.09      0.09         0
+***     max height
+GSM                       6
+***     max shaded canopy spread rate (ft/day) for each month
+***     age                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+GCP                       0         0         0     0.001     0.001     0.001     0.001     0.001     0.001     0.001     0.001     0.001         0
+***     max width
+GCM                       3
+***     max root growth rate (ft/day) for each month     2.5 cm/day                     5  0.164042
+***     age                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+GRT                       0         0         0      0.082      0.082      0.082      0.082      0.082      0.082      0.082      0.082      0.082         0
+***     max depth of root below water table before it stops growing, max depth below ground
+GRS                     0.2       5.0
+*********************************************************************
+***     roughness
+***   Junna changed roughness parameters
+***     roughness
+RMT                       0                         ! Simulation Method (0 if none performed, 1 if using equations)
+***     ***     min manning n, max manning n due to vegetation
+***     RNM                    0.01       0.6
+***     ***     roughness equations for tree
+***     RTE                       0                 ! 0 none, 1 Huthoff, 2007-regard tree as rigid column; 2 Cheng, 2011-regard tree as rigid column; 3 Jarvela 2004; 4 Baptist 2007
+***     ***     roughness equations for shrub
+***     RSE                       4                 ! 0 none, 1 Jarvela 2004, 2 Baptist 2007, 3 Rahmeyer 2000, 4 Fischenich 2000
+***     ***     roughness equations for grass
+***     RGE                       0                 ! 0 none, 1 n-UR method, 2 Kouwen 1980, 3 Wu 1999
+***     ***     list parameters of selected equations
+***     ***     supplimental spatial and temperal data for RTE = 4, Fischenich 2000: CdAd (4 options: 1 iso, 2 spatial, 3 temperal, 4 spatial&temporal variations)
+***     RDT     4
+***     death types
+*********************************************************************
+***     Competition
+CMT                       1                    ! Simulation Method (0 if none performed)
+CID                       7                    ! Death id
+***     age that species Y has to be to kill species 5AR at age  (-1 any age of Y plant will kill)
+***          species Y           1CW       2BW       3NW      4INV       5HB     AgNoG      7NoG
+***     age of species 5AR
+CMP                     0.1         6         6         1        99         3      0.01      0.01
+CMP                       1         6         6         3        99        99      0.01      0.01
+CMP                       2        99        99        99        99        99      0.01      0.01
+***     shading
+***     age of species at which it is shade tolerant
+CSH                      99
+*********************************************************************
+***     scouring
+SMT                       1                    ! Simulation Method (0 if none performed)
+SID                       1                                        ! Death id
+***     age                crit vel
+SVC                       0         3
+SVC                       1         4
+SVC                       2         5
+SVC                       3         6
+*********************************************************************
+***     burying
+BMT                       0                              ! Simulation Method (0 if none performed)
+***     BID                        ?                     ! Death id
+***     BDP                         2                    ! Burying depth
+*********************************************************************
+***     drowning
+DMT                       1                              ! Simulation Method (0 if none performed)
+DID                       3                              ! Death id          same as black willow time
+***     age                time (d)  depth
+DTM                    0        60      1.0
+DTM                    1       120      1.0
+DTM                    2       180      2.0
+***DTM                       0        18      0.5
+***DTM                       1        35      1.0
+***DTM                       2        35      2.0
+***DTM                       3        70      2.0
+***DTM                       4       150      2.0
+***DTM                       5       180      2.0
+*********************************************************************
+***     desication
+YMT                       1                              ! Simulation Method (0 if none performed)
+YID                       4                              ! Death id
+***     age                time (d)  height              height above capillary fringe required for descication      was .25
+YTM                    0        10      1.0
+YTM                    1        30      1.0
+YTM                    2       120      1.0
+***YTM                       0         5      1.0
+***YTM                       1        30      1.0
+***YTM                       2        90      1.0
+***YTM                       2       120      1.0
+***     Months drying is allowed
+***     Jan                Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+YMN     F                  F         T         T         T         T         T         T         T         T         T         F
+*********************************************************************
+***     ice
+IMT                       0                    ! 1 = on, 0 = off
+*********************************************************************
+***     age
+AMT                       0                    ! Simulation Method (0 if none performed)
+***     AID                         6                    ! Death id
+***     ATM                        99                    ! Age of death
+*********************************************************************
+***     Begin Veg Type 5     Herbacious (High/dry Grass)
+*********************************************************************
+***     name
+VVN     herbacious
+***     Junna added Veg Category: 0 = none, 1 = Tree, 2 = shrub, 3 = grass
+VVC                       3
+***     Junna begins to add more parameter
+***     ratio of canopy height and plant height, ratio of canopy with and stem diameter
+VCR                     1.0       1.0
+***     allometric relationships between plant height and stem diameter: H=aD^b, unit of H is m and unit of D is cm
+VDH                    3.25       0.6
+***     number of main stems. So far it is assumed no change during growth
+VSN                       0
+***     begin and end date of vegetation with leaves on
+VLD                      60       304
+*********************************************************************
+***     germination
+MMT                       1          ! Simulation Method (0 = none, 1 = air, 2 = water)
+***     Begin              End
+MDY                      90       150
+***     if MMT = 2: need to enter MPW too
+***     days required for germination, max dry days allowed before germination (assumed seed longevity to 50%germ, Stillwater Sciences 2006 for SJR),
+***     height above gw table considered moist enough for germination, depth below gw germination still occurs
+MPR                       1       45    200.00      0.01
+***     critical depth, travel distance (feet), seed survival (days)
+***     MPW
+***     max lateral spread rate (ft/day) for each month
+***                        age       Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+***     MLT                         0         0         0         0         0         0         0         0         0         0         0         0         0
+***     max height of establish (above?) of low water
+MEL                     200
+*********************************************************************
+***     growth
+GMT                       1                    ! Simulation Method (0 if none performed, 1 = stalk, canopy, root)
+***     max stalk growth rate (ft/day) for each month
+***     age                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+GST                       0      0.01      0.01      0.01      0.01         0         0         0         0      0.01      0.01      0.01      0.01
+***     max height
+GSM                       2
+***     max shaded canopy spread rate (ft/day) for each month
+***     age                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+GCP                       0    0.0001    0.0001    0.0001    0.0001         0         0         0         0    0.0001    0.0001    0.0001    0.0001
+***     max width
+GCM                       1
+***     max root growth rate (ft/day) for each month                             0.0574    1.7500
+***     age                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+GRT                       0    0.0042    0.0042    0.0042    0.0042        0         0         0         0    0.0042    0.0042    0.0042    0.0042
+***     max depth of root below water table before it stops growing, max depth below ground
+GRS                    0.01       0.5
+*********************************************************************
+***   Junna changed roughness parameters
+***     roughness
+RMT                       0                         ! Simulation Method (0 if none performed, 1 if using equations)
+***     ***     min manning n, max manning n due to vegetation
+***     RNM                    0.01       0.6
+***     ***     roughness equations for tree
+***     RTE                       0                 ! 0 none, 1 Huthoff, 2007-regard tree as rigid column; 2 Cheng, 2011-regard tree as rigid column; 3 Jarvela 2004; 4 Baptist 2007
+***     ***     roughness equations for shrub
+***     RSE                       0                 ! 0 none, 1 Jarvela 2004, 2 Baptist 2007, 3 Rahmeyer 2000, 4 Fischenich 2000
+***     ***     roughness equations for grass
+***     RGE                       1                 ! 0 none, 1 n-UR method, 2 Kouwen 1980, 3 Wu 1999
+***     ***     list parameters of selected equations
+***     ***     parameters if RSE = 1, n-UR method: constant Manning n if grass is not submerged
+***     RPM             0.2
+***!!!!!!!!
+***!    ***     parameters if RSE = 2, Kouwen 1980: constant Manning n if grass is not submerged; 2 options to compute MEI: 1 use MEI-h equation, 2 user input h-MEI points
+***!    RPM             0.2               1
+***!    ***     input h-MEI points if RPM = 2
+***!    RRL                       0.0        0.0
+***!    RRL                       0.328      0.002
+***!    RRL                       3.28       0.418
+***!!!!!!!!
+***!    ***     parameters if RSE = 3, Wu 1999: w1, k1, a1, if plant is emergent; w2, k2, a2, b2, if plant is submerged
+***!    RPM     3.44e6      1.0      0.5         4.5e10     1.7      0.89     1.09
+***     death types
+*********************************************************************
+***     Competition
+CMT                       1                    ! Simulation Method (0 if none performed)
+CID                       7                    ! Death id
+***     age that species Y has to be to kill species 4HB at age  (-1 any age of Y plant will kill)
+***          species Y           1CW       2BW       3NW      4INV       5HB    6AgNoG      7NoG
+***     age of species 4HB
+CMP                     0.1      0.01      0.01         1         1        99      0.01      0.01
+CMP                       1         1         1        99         2        99      0.01      0.01
+***     shading
+***     age of species at which it is shade tolerant
+CSH                      99
+*********************************************************************
+***     scouring
+SMT                       1                              ! Simulation Method (0 if none performed)
+SID                       1                              ! Death id
+***     age                crit vel
+SVC                       0      0.75
+SVC                     0.5         1
+SVC                       1       1.5
+*********************************************************************
+***     burying
+BMT                       0                              ! Simulation Method (0 if none performed)
+***     BID                         ?                    ! Death id
+***     BDP                         2                    ! Burying depth
+*********************************************************************
+***     drowning
+DMT                       1                              ! Simulation Method (0 if none performed)
+DID                       3                              ! Death id
+***     age                time (d)  depth
+DTM                       0         5.0       0.1
+DTM                       1        12.0       0.1
+*********************************************************************
+***     desication
+YMT                         1                              ! Simulation Method (0 if none performed)
+YID                         4                              ! Death id
+***     ***                age       time (d)  height              height above capillary fringe required for descication
+YTM                         0       180         0.1
+YTM                         1       400         0.1
+***     ***                Months drying is allowed      Changed from 0 and 1 to False and True
+***     ***                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+YMN                F         F         F         T         T         T         T         T         T         T         F         F
+*********************************************************************
+***     ice
+IMT                       0                    ! 1 = on, 0 = off
+*********************************************************************
+***     age
+AMT                       0                              ! Simulation Method (0 if none performed)
+***     AID                         6                              ! Death id
+***     ATM                        25                              ! Age of death
+*********************************************************************
+***     Begin Veg Type 6     AG No Grow (citrus, berrys, grain, decid nuts crops, idle, vnyd)
+*********************************************************************
+***     name
+VVN     AgNoGrow
+***     Junna added Veg Category: 0 = none, 1 = tree, 2 = shrub, 3 = grass
+VVC                       0
+*********************************************************************
+***     germination
+MMT                       0          ! Simulation Method (0 = none, 1 = air, 2 = water)
+***     Begin              End
+***     MDY                         1         2
+***     ***                if MMT = 2: need to enter MPW too
+***     ***                days required for germination, max dry days allowed before germination,
+***     ***                height above gw table considered moist enough for germination, depth below gw germination still occurs
+***     MPR                         1         1      0.10      0.10
+***     ***                critical depth, travel distance (feet), seed survival (days)
+***     ***                MPW
+***     ***                max lateral spread rate (ft/day) for each month
+***     ***                ***       age       Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov
+***     ***                MLT                0         0         0         0         0         0         0         0         0         0         0         0
+***     ***                max height of establish (above?) of low water
+***     MEL                       200
+*********************************************************************
+***     growth
+GMT                       0                    ! Simulation Method (0 if none performed, 1 = stalk, canopy, root)
+***     ***                max stalk growth rate (ft/day) for each month
+***     ***                age       Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+***     GST                         0         1         1         1         1         1         1         1         1         1         1         1         1
+***     ***                max height
+***     GSM                         3
+***     ***                max shaded canopy spread rate (ft/day) for each month
+***     ***                age       Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+***     GCP                         0    0.0001    0.0001    0.0001    0.0001    0.0001    0.0001    0.0001    0.0001    0.0001    0.0001    0.0001    0.0001
+***     ***                max width
+***     GCM                      0.01
+***     ***                max root growth rate (ft/day) for each month                    0.0574    1.7500
+***     ***                age       Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+***     GRT                         0         1         1         1         1         1         1         1         1         1         1         1         1
+***     ***                max depth of root below water table before it stops growing, max depth below ground
+***     GRS                         1         2
+***     ***     Junna begins to add more parameter
+***     ***     ratio of canopy height and plant height
+***     GCR                     0.9
+***     ***     allometric relationships between plant height and stem diameter: H=aD^b, unit of H is m and unit of D is cm
+***     GDH                    2.35      0.53
+***     ***     begin and end date of vegetation with leaves on
+***     GLD                      60       304
+*********************************************************************
+***     roughness
+RMT                       0                    ! Simulation Method (0 if none performed)
+***     death types
+*********************************************************************
+***     Competition
+CMT                       0                    ! Simulation Method (0 if none performed)
+***     CID                         7                    ! Death id
+***     age that species Y has to be to kill species 7NoG at age  (-1 any age of Y plant will kill)
+***          species Y           1CW       2BW       3NW       4INV       5HB       6RS      7NoG
+***     age of species 7NoG
+***     CMP                       0.1        99        99        99        99        99        99        99
+***     shading
+***     age of species at which it is shade tolerant
+***     CSH                       0.1
+*********************************************************************
+***     scouring
+SMT                       0                    ! Simulation Method (0 if none performed)
+***     SID                         1                              ! Death id
+***     ***                age       crit vel
+***     SVC                         0         0
+*********************************************************************
+***     burying
+BMT                       0                              ! Simulation Method (0 if none performed)
+***     BID                        ?                     ! Death id
+***     BDP                         1                    ! Burying depth
+*********************************************************************
+***     drowning
+DMT                       0                              ! Simulation Method (0 if none performed)
+***     DID                         3                              ! Death id
+***     ***                age       time (d)  depth
+***     DTM                         0         1         1
+*********************************************************************
+***     desication
+YMT                       0                              ! Simulation Method (0 if none performed)
+***     YID                         4                              ! Death id
+***     ***                age       time (d)  height              height above capillary fringe required for descication
+***     YTM                         0         1         1          !                  3
+***     ***                Months drying is allowed
+***     ***                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+***     YMN                F         F         F         T         T         T         T         T         T         T         F         F
+*********************************************************************
+***     ice
+IMT                       0                    ! 1 = on, 0 = off
+*********************************************************************
+***     age
+AMT                       0                    ! Simulation Method (0 if none performed)
+***     AID                         6          ! Death id
+***     ATM                        99          ! Age of death
+*********************************************************************
+***     Begin Veg Type 7     No Grow (alkali sink, roads, buildings)
+*********************************************************************
+***     name
+VVN     no grow
+***     Junna added Veg Category: 0 = none, 1 = tree, 2 = shrub, 3 = grass
+VVC                       0
+*********************************************************************
+***     germination
+MMT                       0          ! Simulation Method (0 = none, 1 = air, 2 = water)
+***     Begin              End
+***     MDY                         1         2
+***     ***                if MMT = 2: need to enter MPW too
+***     ***                days required for germination, max dry days allowed before germination,
+***     ***                height above gw table considered moist enough for germination, depth below gw germination still occurs
+***     MPR                         1         1      0.10      0.10
+***     ***                critical depth, travel distance (feet), seed survival (days)
+***     ***                MPW
+***     ***                max lateral spread rate (ft/day) for each month
+***     ***                ***       age       Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov
+***     ***                MLT                0         0         0         0         0         0         0         0         0         0         0         0
+***     ***                max height of establish (above?) of low water
+***     MEL                       200
+*********************************************************************
+***     growth
+GMT                       0                    ! Simulation Method (0 if none performed, 1 = stalk, canopy, root)
+***     ***                max stalk growth rate (ft/day) for each month
+***     ***                age       Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+***     GST                         0         1         1         1         1         1         1         1         1         1         1         1         1
+***     ***                max height
+***     GSM                         3
+***     ***                max shaded canopy spread rate (ft/day) for each month
+***     ***                age       Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+***     GCP                         0    0.0001    0.0001    0.0001    0.0001    0.0001    0.0001    0.0001    0.0001    0.0001    0.0001    0.0001    0.0001
+***     ***                max width
+***     GCM                      0.01
+***     ***                max root growth rate (ft/day) for each month                    0.0574    1.7500
+***     ***                age       Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+***     GRT                         0         1         1         1         1         1         1         1         1         1         1         1         1
+***     ***                max depth of root below water table before it stops growing, max depth below ground
+***     GRS                         1         2
+***     ***     Junna begins to add more parameter
+***     ***     ratio of canopy height and plant height
+***     GCR                     0.9
+***     ***     allometric relationships between plant height and stem diameter: H=aD^b, unit of H is m and unit of D is cm
+***     GDH                    2.35      0.53
+***     ***     begin and end date of vegetation with leaves on
+***     GLD                      60       304
+*********************************************************************
+***     roughness
+RMT                       0                    ! Simulation Method (0 if none performed)
+***     death types
+*********************************************************************
+***     Competition
+CMT                       0                    ! Simulation Method (0 if none performed)
+***     CID                         7                    ! Death id
+***     age that species Y has to be to kill species 7NoG at age  (-1 any age of Y plant will kill)
+***          species Y           1CW       2BW       3NW       4INV       5HB       6RS      7NoG
+***     age of species 7NoG
+***     CMP                      0.1        99        99        99        99        99        99        99
+***     shading
+***     age of species at which it is shade tolerant
+***     CSH                       0.1
+*********************************************************************
+***     scouring
+SMT                       0                    ! Simulation Method (0 if none performed)
+***     SID                         1                              ! Death id
+***     ***                age       crit vel
+***     SVC                         0         0
+*********************************************************************
+***     burying
+BMT                       0                              ! Simulation Method (0 if none performed)
+***     BID                        ?                     ! Death id
+***     BDP                         1                    ! Burying depth
+*********************************************************************
+***     drowning
+DMT                       0                              ! Simulation Method (0 if none performed)
+***     DID                         3                              ! Death id
+***     ***                age       time (d)  depth
+***     DTM                         0         1         1
+*********************************************************************
+***     desication
+YMT                       0                              ! Simulation Method (0 if none performed)
+***     YID                         4                              ! Death id
+***     ***                age       time (d)  height              height above capillary fringe required for descication
+***     YTM                         0         1         1          !                  3
+***     ***                Months drying is allowed
+***     ***                Jan       Feb       Mar       Apr       May       Jun       Jul       Aug       Sep       Oct       Nov       Dec
+***     YMN                F         F         F         T         T         T         T         T         T         T         F         F
+*********************************************************************
+***     ice
+IMT                       0                    ! 1 = on, 0 = off
+*********************************************************************
+***     age
+AMT                       0                    ! Simulation Method (0 if none performed)
+***     AID                         6          ! Death id
+***     ATM                        99          ! Age of death
+*********************************************************************
+END

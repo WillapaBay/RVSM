@@ -1,0 +1,14 @@
+***     method
+GMT             1
+***     hydraulic conductivity(K)ft/day, rt hydr cndct ft/day, capillary ht/fringe, drop velocity(ft/day), groundwater hmin
+***     groundwater hmin, groundwater hmax is gw max with respect to ground behind levees
+***     type      K  cap ht   drop vel gw hmin  gw hmax behindlevees
+GHC             1  1.0E+05     1.0      0.5     20.0        1
+GHC             2  1.0E+05     1.0      0.5     20.0        1
+GHC             3  1.0E+05     1.0      0.5     20.0        1
+GHC             4  1.0E+05     1.0      0.5     20.0        1
+GHC             5  1.0E+05     1.0      0.5     20.0        1
+GHC             6  1.0E+05     1.0      0.5     20.0        1
+GHC             7  1.0E+05     1.0      0.5     20.0        1
+GHC             8  1.0E+05     1.0      0.5     20.0        1
+END
